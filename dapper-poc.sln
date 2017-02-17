@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapper", "Dapper\Dapper.csproj", "{B2B76FD2-9D81-496A-91B5-FB7123BD9640}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperPoc", "Dapper\DapperPoc.csproj", "{B2B76FD2-9D81-496A-91B5-FB7123BD9640}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
