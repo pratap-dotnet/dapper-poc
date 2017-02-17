@@ -52,6 +52,9 @@ namespace DapperPoc
                 case SampleTypes.MultipleQueries:
                     sample = new MultipleQueries();
                     break;
+                case SampleTypes.SimpleStoredProcedure:
+                    sample = new SimpleStoredProcedure();
+                    break;
                 default:
                     break;
             }

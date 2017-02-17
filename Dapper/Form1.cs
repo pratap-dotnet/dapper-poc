@@ -43,5 +43,10 @@ namespace DapperPoc
         {
             samplesFactory.Execute(SampleTypes.MultipleQueries);
         }
+
+        private void button6_Click(object sender, System.EventArgs e)
+        {
+            samplesFactory.Execute(SampleTypes.SimpleStoredProcedure);
+        }
     }
 }
