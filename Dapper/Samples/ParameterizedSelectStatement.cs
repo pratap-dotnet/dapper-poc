@@ -11,7 +11,7 @@ namespace DapperPoc.Samples
 {
     class ParameterizedSelectStatement : ISamples
     {
-        public void Execute(IDbConnection dbConnection, ILogger logger)
+        public void Execute(IDbConnection dbConnection, ILogger logger, object[] args = null)
         {
             Stopwatch watch = new Stopwatch();
             var query = @"SELECT * FROM Production.Product where ProductId = @Id";

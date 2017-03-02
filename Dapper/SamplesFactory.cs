@@ -18,13 +18,13 @@ namespace DapperPoc
             this.listBoxAdapter = listBoxAdapter;
         }
 
-        public void Execute(SampleTypes sampleType)
+        public void Execute(SampleTypes sampleType, object[] args = null)
         {
             listBoxAdapter.WriteSeparator();
             ISamples sample = GetSample(sampleType);
             using(var sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ConnectionString))
             {
-                sample.Execute(sqlConnection, listBoxAdapter);
+                sample.Execute(sqlConnection, listBoxAdapter, args);
             }
             listBoxAdapter.WriteSeparator();
         }
@@ -54,6 +54,9 @@ namespace DapperPoc
                     break;
                 case SampleTypes.SimpleStoredProcedure:
                     sample = new SimpleStoredProcedure();
+                    break;
+                case SampleTypes.SimpleInsertStatement:
+                    sample = new SimpleInsertStatement();
                     break;
                 default:
                     break;

@@ -9,7 +9,7 @@ namespace DapperPoc.Samples
 {
     class MultiMappingSelectStatement : ISamples
     {
-        public void Execute(IDbConnection dbConnection, ILogger logger)
+        public void Execute(IDbConnection dbConnection, ILogger logger, object[] args = null)
         {
             Stopwatch watch = new Stopwatch();
             var query = @"SELECT * FROM Production.Product P INNER JOIN Production.ProductModel PM ON P.ProductModelID = PM.ProductModelID";

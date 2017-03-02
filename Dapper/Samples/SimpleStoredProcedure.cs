@@ -11,7 +11,7 @@ namespace DapperPoc.Samples
 {
     class SimpleStoredProcedure : ISamples
     {
-        public void Execute(IDbConnection dbConnection, ILogger logger)
+        public void Execute(IDbConnection dbConnection, ILogger logger, object[] args = null)
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();

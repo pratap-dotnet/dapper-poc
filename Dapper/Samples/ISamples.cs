@@ -4,6 +4,6 @@ namespace DapperPoc.Samples
 {
     interface ISamples
     {
-        void Execute(IDbConnection dbConnection, ILogger logger);
+        void Execute(IDbConnection dbConnection, ILogger logger, object[] args = null);
     }
 }

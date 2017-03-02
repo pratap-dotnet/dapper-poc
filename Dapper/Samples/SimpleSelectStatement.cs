@@ -26,7 +26,7 @@ namespace DapperPoc.Samples
             public DateTime ModifiedDate { get; set; }
         }
 
-        public void Execute(IDbConnection dbConnection, ILogger listBoxAdapter)
+        public void Execute(IDbConnection dbConnection, ILogger listBoxAdapter, object[] args = null)
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();

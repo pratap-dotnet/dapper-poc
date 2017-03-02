@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using DapperPoc.Samples;
+using DapperPoc.Common;
 
 namespace DapperPoc
 {
@@ -47,6 +48,19 @@ namespace DapperPoc
         private void button6_Click(object sender, System.EventArgs e)
         {
             samplesFactory.Execute(SampleTypes.SimpleStoredProcedure);
+        }
+
+        private void button7_Click(object sender, System.EventArgs e)
+        {
+            using (NewUserForm form = new NewUserForm())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    Person person = form.PersonData;
+                    samplesFactory.Execute(SampleTypes.SimpleInsertStatement, new object[] { person });
+                }
+            }
+
         }
     }
 }

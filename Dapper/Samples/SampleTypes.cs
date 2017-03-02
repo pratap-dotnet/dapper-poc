@@ -14,6 +14,7 @@ namespace DapperPoc.Samples
         MultiMappingChildEntities,
         ParameterizedSelectStatement,
         MultipleQueries,
-        SimpleStoredProcedure
+        SimpleStoredProcedure,
+        SimpleInsertStatement
     }
 }
