@@ -13,11 +13,21 @@ namespace DapperPoc
     class SamplesFactory
     {
         private readonly ILogger listBoxAdapter;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SamplesFactory"/> class.
+        /// </summary>
+        /// <param name="listBoxAdapter">The list box adapter.</param>
         public SamplesFactory(ILogger listBoxAdapter)
         {
             this.listBoxAdapter = listBoxAdapter;
         }
 
+        /// <summary>
+        /// Executes the specified sample type.
+        /// </summary>
+        /// <param name="sampleType">Type of the sample.</param>
+        /// <param name="args">The arguments.</param>
         public void Execute(SampleTypes sampleType, object[] args = null)
         {
             listBoxAdapter.WriteSeparator();
@@ -29,6 +39,11 @@ namespace DapperPoc
             listBoxAdapter.WriteSeparator();
         }
 
+        /// <summary>
+        /// Gets the sample.
+        /// </summary>
+        /// <param name="sampleType">Type of the sample.</param>
+        /// <returns></returns>
         private static ISamples GetSample(SampleTypes sampleType)
         {
             ISamples sample = null;

@@ -11,6 +11,12 @@ namespace DapperPoc.Samples
 {
     class SimpleSelectStatementWithDynamicEntities : ISamples
     {
+        /// <summary>
+        /// Executes the specified database connection.
+        /// </summary>
+        /// <param name="dbConnection">The database connection.</param>
+        /// <param name="listBoxAdapter">The list box adapter.</param>
+        /// <param name="args">The arguments.</param>
         public void Execute(IDbConnection dbConnection, ILogger listBoxAdapter, object[] args = null)
         {
             Stopwatch watch = new Stopwatch();

@@ -13,6 +13,13 @@ namespace DapperPoc.Samples
 {
     internal class SimpleInsertStatement : ISamples
     {
+        /// <summary>
+        /// Executes the specified database connection.
+        /// </summary>
+        /// <param name="dbConnection">The database connection.</param>
+        /// <param name="logger">The logger.</param>
+        /// <param name="args">The arguments.</param>
+        /// <exception cref="ArgumentException">Expected object type for parameter 'args' at index 0 is " + typeof(Person)</exception>
         public void Execute(IDbConnection dbConnection, ILogger logger, object[] args = null)
         {
             if(args[0] is Person == false)
