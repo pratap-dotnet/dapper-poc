@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace DapperPoc
 {
-    interface ILogger
+    public interface ILogger
     {
         /// <summary>
         /// Writes the separator.

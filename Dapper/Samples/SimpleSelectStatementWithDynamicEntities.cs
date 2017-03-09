@@ -21,7 +21,7 @@ namespace DapperPoc.Samples
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            var query = @"SELECT FirstName,MiddleName,LastName FROM Person.Person";
+            var query = @"SELECT FirstName,MiddleName,LastName FROM Person";
             IEnumerable<dynamic> customers = dbConnection.Query<dynamic>(query);
             watch.Stop();
             listBoxAdapter.WriteLine($"Query {query} executed in {watch.ElapsedMilliseconds} ms and returned {customers.Count()} objects");

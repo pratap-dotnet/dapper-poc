@@ -20,7 +20,7 @@ namespace DapperPoc.Samples
         public void Execute(IDbConnection dbConnection, ILogger logger, object[] args = null)
         {
             Stopwatch watch = new Stopwatch();
-            var query = @"SELECT * FROM Production.ProductModel PM INNER JOIN Production.Product P ON PM.ProductModelID = P.ProductModelID";
+            var query = @"SELECT * FROM ProductModel PM INNER JOIN Product P ON PM.ProductModelID = P.ProductModelID";
             var lookUp = new Dictionary<int, ProductModel>();
             watch.Start();
             dbConnection.Query<ProductModel, Product, ProductModel>(query,

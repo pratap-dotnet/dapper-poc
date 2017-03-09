@@ -36,7 +36,7 @@ namespace DapperPoc.Samples
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            var query = @"SELECT * FROM PERSON.PERSON";
+            var query = @"SELECT * FROM PERSON";
             var persons = dbConnection.Query<Person>(query);
             watch.Stop();
             listBoxAdapter.WriteLine($"Query \"{query}\" executed in {watch.ElapsedMilliseconds} ms and retrieved {persons.Count()} objects of type {typeof(Person)}");

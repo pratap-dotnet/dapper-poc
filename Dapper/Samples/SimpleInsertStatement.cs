@@ -32,7 +32,7 @@ namespace DapperPoc.Samples
                 string guid = System.Guid.NewGuid().ToString();
 
                 watch1.Start();
-                var queryInsertIntoBusinessEntity = @"insert AdventureWorks.Person.BusinessEntity (rowguid, ModifiedDate) Output Inserted.BusinessEntityId values('" + guid + "', GETDATE())";
+                var queryInsertIntoBusinessEntity = @"insert BusinessEntity (rowguid, ModifiedDate) Output Inserted.BusinessEntityId values('" + guid + "', GETDATE())";
                 var id = dbConnection.ExecuteScalar(queryInsertIntoBusinessEntity);
                 watch1.Stop();
 
@@ -50,7 +50,7 @@ namespace DapperPoc.Samples
                 };
 
                 watch2.Start();
-                var queryInsertIntoPerson = @"INSERT PERSON.PERSON(BusinessEntityId, PersonType, Suffix, FirstName, MiddleName, LastName, Title) 
+                var queryInsertIntoPerson = @"INSERT PERSON(BusinessEntityId, PersonType, Suffix, FirstName, MiddleName, LastName, Title) 
                                                 values(@pBusinessEntityId, @pType, @suffix, @fName, @mName, @lName, @title)";
                 var y = dbConnection.Execute(queryInsertIntoPerson, o);
                 watch2.Stop();

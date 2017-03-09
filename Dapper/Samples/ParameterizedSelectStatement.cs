@@ -20,7 +20,7 @@ namespace DapperPoc.Samples
         public void Execute(IDbConnection dbConnection, ILogger logger, object[] args = null)
         {
             Stopwatch watch = new Stopwatch();
-            var query = @"SELECT * FROM Production.Product where ProductId = @Id";
+            var query = @"SELECT * FROM Product where ProductId = @Id";
             watch.Start();
             var dynamicEntity = dbConnection.Query<dynamic>(query, new { Id = 100 }).FirstOrDefault();
             watch.Stop();
