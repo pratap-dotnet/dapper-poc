@@ -50,8 +50,8 @@ namespace DapperPoc.Samples
             Stopwatch watch = new Stopwatch();
             watch.Start();
             var query = @"
-                    SELECT * from Product where ProductId = @Id
-                    SELECT * from ProductCostHistory where ProductId = @Id
+                    SELECT * from Product where ProductId = @Id;
+                    SELECT * from ProductCostHistory where ProductId = @Id;
                     SELECT * from ProductInventory where ProductId = @Id";
 
             using (var multiResults = dbConnection.QueryMultiple(query, new { Id = 707 }))
