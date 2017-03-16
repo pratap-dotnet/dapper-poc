@@ -40,26 +40,16 @@ namespace DapperPoc.UnitTests
         class ProductCostHistory
         {
             public int ProductId { get; set; }
-            //public double StandardCost { get; set; }
-            //public DateTime ModifiedDate { get; set; }
-            //public DateTime StartDate { get; set; }
         }
 
         class ProductInventory
         {
             public int ProductId { get; set; }
-            //public int LocationId { get; set; }
-            //public string Shelf { get; set; }
-            //public int Quantity { get; set; }
         }
 
-        class BusinessEntity
-        {
-            public int BusinessEntityId { get; set; }
-            public int RowGuid { get; set; }
-            public int ModifiedDate { get; set; }
-        }
-
+        /// <summary>
+        /// Shoulds the execute multi mapping one to many relation select statement.
+        /// </summary>
         [Test]
         public void should_execute_multi_mapping_one_to_many_relation_select_statement()
         {
@@ -89,6 +79,9 @@ namespace DapperPoc.UnitTests
             multiMappingOneToManyRelationSelectStatement.Execute(inMemoryDatabase.OpenConnection(), loggerMock.Object);
         }
 
+        /// <summary>
+        /// Shoulds the execute multi mapping select statement.
+        /// </summary>
         [Test]
         public void should_execute_multi_mapping_select_statement()
         {
@@ -118,6 +111,9 @@ namespace DapperPoc.UnitTests
             multiMappingSelectStatement.Execute(inMemoryDatabase.OpenConnection(), loggerMock.Object);
         }
 
+        /// <summary>
+        /// Shoulds the execute multiple queries statement.
+        /// </summary>
         [Test]
         public void should_execute_multiple_queries_statement()
         {
@@ -156,6 +152,9 @@ namespace DapperPoc.UnitTests
             multipleQueries.Execute(inMemoryDatabase.OpenConnection(), loggerMock.Object);
         }
 
+        /// <summary>
+        /// Shoulds the execute parameterized select statement.
+        /// </summary>
         [Test]
         public void should_execute_parameterized_select_statement()
         {
@@ -176,38 +175,9 @@ namespace DapperPoc.UnitTests
             parameterizedSelectStatement.Execute(inMemoryDatabase.OpenConnection(), loggerMock.Object);
         }
 
-        [Test]
-        public void should_execute_simple_insert_statement()
-        {
-            var inMemoryDatabase = new InMemoryDatabase();
-
-            Person person = new Person()
-            {
-                PersonType = "EP",
-                Suffix = "Dr",
-                FirstName = "fName",
-                MiddleName = "mName",
-                LastName = "lName",
-                Title = "title",
-                AdditionalContactInfo = "contactInfo"
-            };
-
-            inMemoryDatabase.Insert<BusinessEntity>(new List<BusinessEntity>
-            {
-                new BusinessEntity()
-            });
-
-            var mockRepo = new MockRepository(MockBehavior.Default);
-            var loggerMock = mockRepo.Create<ILogger>();
-
-            loggerMock.Setup(a => a.WriteLine(It.IsAny<string>()))
-                .Callback<string>(msg => Assert.IsTrue(msg.Contains(@"INSERT PERSON(BusinessEntityId, PersonType, Suffix, FirstName, MiddleName, LastName, Title) 
-                                                values(@pBusinessEntityId, @pType, @suffix, @fName, @mName, @lName, @title)")));
-
-            var simpleInsertStatement = new SimpleInsertStatement();
-            simpleInsertStatement.Execute(inMemoryDatabase.OpenConnection(), loggerMock.Object, new object[] { person });
-        }
-
+        /// <summary>
+        /// Shoulds the execute simple select statement.
+        /// </summary>
         [Test]
         public void should_execute_simple_select_statement()
         {
@@ -228,6 +198,9 @@ namespace DapperPoc.UnitTests
             simpleSelectStatement.Execute(inMemoryDatabase.OpenConnection(), loggerMock.Object);
         }
 
+        /// <summary>
+        /// Shoulds the execute simple select with dynamic entities statement.
+        /// </summary>
         [Test]
         public void should_execute_simple_select_with_dynamic_entities_statement()
         {

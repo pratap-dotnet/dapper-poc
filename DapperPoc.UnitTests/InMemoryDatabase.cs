@@ -15,6 +15,11 @@ namespace DapperPoc.UnitTests
 
         public IDbConnection OpenConnection() => this.dbFactory.Open();
 
+        /// <summary>
+        /// Inserts the specified items.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items">The items.</param>
         public void Insert<T>(IEnumerable<T> items)
         {
             using (var db = this.OpenConnection())

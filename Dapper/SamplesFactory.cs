@@ -12,15 +12,15 @@ namespace DapperPoc
 {
     class SamplesFactory
     {
-        private readonly ILogger listBoxAdapter;
+        private readonly ILogger logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SamplesFactory"/> class.
         /// </summary>
         /// <param name="listBoxAdapter">The list box adapter.</param>
-        public SamplesFactory(ILogger listBoxAdapter)
+        public SamplesFactory(ILogger logger)
         {
-            this.listBoxAdapter = listBoxAdapter;
+            this.logger = logger;
         }
 
         /// <summary>
@@ -30,13 +30,13 @@ namespace DapperPoc
         /// <param name="args">The arguments.</param>
         public void Execute(SampleTypes sampleType, object[] args = null)
         {
-            listBoxAdapter.WriteSeparator();
+            logger.WriteSeparator();
             ISamples sample = GetSample(sampleType);
             using(var sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ConnectionString))
             {
-                sample.Execute(sqlConnection, listBoxAdapter, args);
+                sample.Execute(sqlConnection, logger, args);
             }
-            listBoxAdapter.WriteSeparator();
+            logger.WriteSeparator();
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace DapperPoc
         /// </summary>
         /// <param name="sampleType">Type of the sample.</param>
         /// <returns></returns>
-        private static ISamples GetSample(SampleTypes sampleType)
+        public static ISamples GetSample(SampleTypes sampleType)
         {
             ISamples sample = null;
             switch (sampleType)
